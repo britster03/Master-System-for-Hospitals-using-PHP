@@ -62,12 +62,12 @@ function sendEmail($to, $subject, $message) {
     $mail = new PHPMailer;
     
     $mail->isSMTP();
-    $mail->Host = 'smtp.gmail.com'; // Your SMTP server
+    $mail->Host = 'smtp.gmail.com'; 
     $mail->SMTPAuth = true;
-    $mail->Username = 'ronitvirwani1@gmail.com'; // SMTP username
-    $mail->Password = 'azbhblplcwcgtnsr'; // SMTP password
-    $mail->SMTPSecure = 'tls'; // Enable TLS encryption, 'ssl' also accepted
-    $mail->Port = 587; // TCP port to connect to
+    $mail->Username = 'ronitvirwani1@gmail.com'; 
+    $mail->Password = 'azbhblplcwcgtnsr'; 
+    $mail->SMTPSecure = 'tls';
+    $mail->Port = 587;
 
     $mail->setFrom('ronitvirwani1@gmail.com', 'Ronit');
     

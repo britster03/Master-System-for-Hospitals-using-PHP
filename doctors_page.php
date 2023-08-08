@@ -14,7 +14,7 @@
         <?php
 session_start();
 
-// Connect to the database (Replace with your database credentials)
+
 $host = "localhost";
 $db_user = "root";
 $db_password = "";
@@ -25,7 +25,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-        // Fetch doctor information from the database
+ 
         $query = "SELECT * FROM doctor_info";
         $result = mysqli_query($conn, $query);
 
@@ -35,13 +35,13 @@ if ($conn->connect_error) {
             echo '<div class="card-body">';
             echo '<h5 class="card-title">' . $row['doctor_name'] . '</h5>';
             echo '<p class="card-text">Specialization: ' . $row['specialization'] . '</p>';
-            // Display other doctor information as needed
+      
             echo '</div>';
             echo '</div>';
             echo '</div>';
         }
 
-        // Close the database connection
+
         mysqli_close($conn);
         ?>
     </div>

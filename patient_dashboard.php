@@ -2,11 +2,11 @@
 <html>
 <head>
     <title>Patient Dashboard</title>
-    <!-- Add Bootstrap CSS -->
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <style>
-        /* Apply Montserrat font to the title */
+        
         h1 {
             font-family: 'Montserrat', sans-serif;
         }
@@ -20,7 +20,6 @@
         <?php
         session_start();
 
-        // Connect to the database (Replace with your database credentials)
         $host = "localhost";
         $db_user = "root";
         $db_password = "";
@@ -33,12 +32,11 @@
 
         $patient_name = $_SESSION['username'];
 
-        // Check if the patient details are already submitted
         $sql_check = "SELECT * FROM patient_info WHERE patient_name='$patient_name'";
         $result_check = $conn->query($sql_check);
 
         if ($result_check->num_rows == 0) {
-            // Patient details form (displayed only for the first time)
+     
             echo '
             <h2>Welcome, ' . $_SESSION['username'] . '!</h2>
             <h3>Register Patient Details</h3>
@@ -57,7 +55,7 @@
             </form>
             ';
         } else {
-            // Patient details already submitted, display registered information
+    
             $row = $result_check->fetch_assoc();
             echo '
             <h2>Welcome back, ' . $_SESSION['username'] . '!</h2>
@@ -75,7 +73,7 @@
             <hr>
             ';
             
-            // Display "Book Appointment" button
+          
             echo '
             <div class="mt-3 text-center">
                 <a href="#appointmentForm" class="btn btn-primary" data-toggle="collapse">Book Appointment</a>
@@ -91,7 +89,7 @@
             </div>
         </div>';
 
-            // Display the appointment booking form (hidden by default)
+          
             echo '
             <div class="mt-3 collapse" id="appointmentForm">
                 <h3>Book Appointment</h3>
@@ -104,7 +102,7 @@
                     <div class="form-group">
                         <label for="doctor_id">Select Doctor:</label>
                         ';
-            // Fetch doctor names from doctor_info table
+   
             $sql_doctors = "SELECT * FROM doctor_info";
             $result_doctors = $conn->query($sql_doctors);
             echo '<select class="form-control" id="doctor_name" name="doctor_name" required>';
@@ -128,7 +126,7 @@
 
     </div>
 
-    <!-- Add Bootstrap JS and jQuery -->
+   
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

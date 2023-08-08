@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <style>
-        /* Apply Montserrat font to the title */
+      
         h1 {
             font-family: 'Montserrat', sans-serif;
         }
@@ -19,7 +19,7 @@
 }
 
 .card-logo {
-    max-width: 50px; /* Adjust the width as needed */
+    max-width: 50px; 
     height: auto;
     align-items: right;
 }
@@ -100,7 +100,7 @@
 </html>
 
 <?php
-// Backend and Database-related code
+
 
 function getTotalAdmins() {
     $conn = connectToDatabase();

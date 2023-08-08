@@ -1,7 +1,7 @@
 <?php
 require 'database.php';
 
-// ... Other code ...
+
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $requestId = $_POST['request_id'];
