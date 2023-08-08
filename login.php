@@ -4,9 +4,22 @@
     <title>Login</title>
     <!-- Add Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <style>
+        /* Apply Montserrat font to the title */
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+        }
+        div {
+            font-family: 'Montserrat', sans-serif;
+        }
+    </style>
 </head>
 <body>
     <div class="container mt-5">
+    <div class="container mt-5 text-center">
+        <h1>Hospital Management System</h1>
+    </div>
         <h2>Login</h2>
         <form action="login_process.php" method="post">
             <div class="form-group">
@@ -28,6 +41,12 @@
             </div>
 
             <button type="submit" class="btn btn-primary">Login</button>
+            <hr>
+            <div class="container mt-5 text-center">
+        <h2>Not Registered Yet?</h2>
+        <p>Register now, please click below:</p>
+        <a href="signup.php" class="btn btn-primary">Login Here</a>
+    </div>
         </form>
     </div>
 

@@ -4,6 +4,16 @@
     <title>Patient Dashboard</title>
     <!-- Add Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <style>
+        /* Apply Montserrat font to the title */
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+        }
+        div {
+            font-family: 'Montserrat', sans-serif;
+        }
+    </style>
 </head>
 <body>
     <div class="container mt-5">
@@ -65,42 +75,51 @@
             <hr>
             ';
             
-                    // Display "Book Appointment" button
-                    echo '
-                    <div class="mt-3 text-center">
-                        <a href="#appointmentForm" class="btn btn-primary" data-toggle="collapse">Book Appointment</a>
+            // Display "Book Appointment" button
+            echo '
+            <div class="mt-3 text-center">
+                <a href="#appointmentForm" class="btn btn-primary" data-toggle="collapse">Book Appointment</a>
+            </div>
+            ';
+
+            echo '            <div class="col-md-4 mt-4 mx-auto text-center">
+            <div class="card bg-secondary text-white">
+                <div class="card-body">
+                    <h5 class="card-title">View Appointment Information</h5>
+                    <a href="appointment_status.php" class="btn btn-light">View</a>
+                </div>
+            </div>
+        </div>';
+
+            // Display the appointment booking form (hidden by default)
+            echo '
+            <div class="mt-3 collapse" id="appointmentForm">
+                <h3>Book Appointment</h3>
+                <form action="book_appointment.php" method="post">
+                    <div class="form-group">
+                        <label for="appointment_date">Appointment Date:</label>
+                        <input type="date" class="form-control" id="appointment_date" name="appointment_date" required>
                     </div>
-                    ';
-        
-                    // Display the appointment booking form (hidden by default)
-                    echo '
-                    <div class="mt-3 collapse" id="appointmentForm">
-                        <h3>Book Appointment</h3>
-                        <form action="book_appointment.php" method="post">
-                            <div class="form-group">
-                                <label for="appointment_date">Appointment Date:</label>
-                                <input type="date" class="form-control" id="appointment_date" name="appointment_date" required>
-                            </div>
-        
-                            <div class="form-group">
-                                <label for="doctor_name">Select Doctor:</label>
-                                ';
-                    // Fetch doctor names from doctor_info table
-                    $sql_doctors = "SELECT * FROM doctor_info";
-                    $result_doctors = $conn->query($sql_doctors);
-                    echo '<select class="form-control" id="doctor_name" name="doctor_name" required>';
-                    while ($row_doctor = $result_doctors->fetch_assoc()) {
-                        echo '<option value="' . $row_doctor['id'] . '">' . $row_doctor['doctor_name'] . ' - ' . $row_doctor['specialization'] . '</option>';
-                    }
-                    echo '</select>';
-                    echo '
-                            </div>
-        
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </form>
+
+                    <div class="form-group">
+                        <label for="doctor_id">Select Doctor:</label>
+                        ';
+            // Fetch doctor names from doctor_info table
+            $sql_doctors = "SELECT * FROM doctor_info";
+            $result_doctors = $conn->query($sql_doctors);
+            echo '<select class="form-control" id="doctor_name" name="doctor_name" required>';
+            while ($row_doctor = $result_doctors->fetch_assoc()) {
+                echo '<option value="' . $row_doctor['doctor_name'] . '">' . $row_doctor['id'] . ' - ' . $row_doctor['specialization'] . '</option>';
+            }
+            echo '</select>';
+            echo '
                     </div>
-                    ';
-                }
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+            ';
+        }
 
         
 
