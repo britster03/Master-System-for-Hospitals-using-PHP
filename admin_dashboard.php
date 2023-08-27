@@ -23,6 +23,13 @@
     height: auto;
     align-items: right;
 }
+body {
+            background-image: url('images/background.jpg'); 
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-color: rgba(0, 0, 0, 0.55);  
+        }
     </style>
 </head>
 <body>
